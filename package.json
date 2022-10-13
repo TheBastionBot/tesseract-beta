@@ -1,0 +1,33 @@
+{
+  "name": "@bastion/tesseract",
+  "version": "3.0.0-beta.1",
+  "description": "The heart and soul of the Bastion bot.",
+  "main": "./dist/tesseract.js",
+  "typings": "./typings/tesseract.d.ts",
+  "repository": "https://github.com/TheBastionBot/Tesseract.git",
+  "homepage": "https://github.com/TheBastionBot/Tesseract#readme",
+  "author": "iamtraction",
+  "license": "MIT",
+  "keywords": [ "tesseract", "bastion", "discord", "bot", "framework" ],
+  "scripts": {
+    "transpile": "tsc",
+    "lint": "eslint . --ext .ts",
+    "test": "npm run lint && npm run transpile"
+  },
+  "dependencies": {
+    "@discordjs/voice": "^0.13.0",
+    "discord-api-types": "^0.37.12",
+    "discord.js": "^14.6.0",
+    "locke": "github:TheBastionBot/Locke",
+    "mongoose": "^6.6.5",
+    "picocolors": "^1.0.0",
+    "yaml": "^2.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.5",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "typescript": "^4.8.4"
+  }
+}

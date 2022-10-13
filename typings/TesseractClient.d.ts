@@ -1,0 +1,30 @@
+﻿import * as mongoose from "mongoose";
+import { Client, ClientApplication, ClientOptions, Collection, Guild } from "discord.js";
+import { Locke } from "locke";
+import TesseractCommand from "./TesseractCommand";
+import TesseractFilter from "./TesseractFilter";
+import TesseractMessageComponent from "./TesseractMessageComponent";
+import { music, tesseract } from "./types";
+declare class TesseractClient extends Client {
+    app: ClientApplication | void;
+    locale: Locke;
+    directory: string;
+    filters: Collection<string, TesseractFilter>;
+    commands: TesseractCommand[];
+    messageComponents: TesseractMessageComponent[];
+    settings: tesseract.Settings;
+    studio: WeakMap<Guild, music.Studio>;
+    constructor(options: ClientOptions);
+    private applyFilters;
+    protected loadCommands: () => void;
+    protected loadMessageComponents: () => void;
+    protected initInteractions: () => void;
+    protected initFilters: () => void;
+    protected initListeners: () => void;
+    initSettings: () => void;
+    connectMongo: () => Promise<typeof mongoose>;
+    disconnectMongo: () => Promise<void>;
+    init(): Promise<string>;
+    toString: () => string;
+}
+export default TesseractClient;
